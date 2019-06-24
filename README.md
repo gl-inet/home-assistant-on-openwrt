@@ -5,7 +5,7 @@ HA supports only Windows, Linux, Mac and Raspberry offically. While this project
 ## Hardware Requirements
 Completely installation for HomeAssistant will take nearly 350 MB Flash and 130 MB RAM. More components require more storage.  
 Recommend device is GL-S1300. It has a 8G emmc, 512 MB RAM and a Quad-core CPU. It is enough for running HA and its routing function is also completely unaffected.  
-##Software Requirements
+## Software Requirements
 Firmware version 3.023 for GL-S1300 or above.
 ## Clone this project
 Open the OpenWRT interface through SSH. Using putty or xshell or some other tools.  
