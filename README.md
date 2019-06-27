@@ -24,10 +24,14 @@ Wait for the installation finished.
 While you can also choose to clone this project and excute it manually.
 ### Clone this project
 Open the OpenWRT interface through SSH. Using putty or xshell or some other tools.  
-And then get into the root path and clone this project.  
+And then get into the root path and clone this project.
 ```
 cd /root/
 git clone https://github.com/gl-inet/home-assistant-on-openwrt.git
+```
+Note that maybe you'd install the git, use command like this
+```
+opkg install git git-http
 ```
 ### Start installation
 Get into the project folder and start the installation. Make sure your device has connected to the Internet.
