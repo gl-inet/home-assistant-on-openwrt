@@ -7,14 +7,29 @@ Completely installation for HomeAssistant will take nearly 350 MB Flash and 130 
 Recommend device is GL-S1300. It has a 8G emmc, 512 MB RAM and a Quad-core CPU. It is enough for running HA and its routing function is also completely unaffected.  
 ## Software Requirements
 Firmware version 3.023 for GL-S1300 or above.
-## Clone this project
+
+## Easiest installation
+Do not need to clone this project and excute it manually. We have make an ipk to do this!  
+Just install a package named "gl-homeassistant" in the web UI. Or manually install it in the SSH terminal like this:  
+```
+opkg update
+opkg install gl-homeassistant
+```
+Then start the installation using command in the SSH terminal
+```
+hass-install
+```
+Wait for the installation finished.
+## Manually install
+While you can also choose to clone this project and excute it manually.
+### Clone this project
 Open the OpenWRT interface through SSH. Using putty or xshell or some other tools.  
 And then get into the root path and clone this project.  
 ```
 cd /root/
 git clone https://github.com/gl-inet/home-assistant-on-openwrt.git
 ```
-## Start installation
+### Start installation
 Get into the project folder and start the installation. Make sure your device has connected to the Internet.
 ```
 cd home-assistant-on-openwrt
