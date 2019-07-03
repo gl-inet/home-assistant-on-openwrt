@@ -110,6 +110,9 @@ if [ $pipreq -ne 1 ]; then
     rm ./get-pip.py
 fi
 
+#Set pip install configuration to no-cache-dir
+pip3 config set install.no-cache-dir on
+
 #Install gcc
 try=0
 while true
@@ -162,7 +165,6 @@ do
         echo -e "\033[33m Install python module: PyNaCl...... try $try. \033[0m"
         SODIUM_INSTALL=system pip3 install pynacl
         if [ $? -ne 0 ]; then
-            rm -rf ./.cache/
             continue
         else
             break
@@ -181,8 +183,7 @@ do
         echo -e "\033[33m Download python module: cryptography...... try $try. \033[0m"
         curl https://files.pythonhosted.org/packages/07/ca/bc827c5e55918ad223d59d299fff92f3563476c3b00d0a9157d9c0217449/cryptography-2.6.1.tar.gz > cryptography-2.6.1.tar.gz
         if [ $? -ne 0 ]; then
-            rm ./cryptography-2.6.1.tar.gz
-            rm -rf ./.cache/
+            rm ./cryptography-2.6.1.tar.gz            
             continue
         else
             break
@@ -212,7 +213,6 @@ do
         echo -e "\033[33m Install HomeAssistant...... try $try. \033[0m"
         python3 -m pip install homeassistant
         if [ $? -ne 0 ]; then
-            rm -rf ./.cache/
             continue
         else
             break
@@ -223,8 +223,8 @@ do
     fi
 done
 #Config the homeassistant
-mkdir -p ./.homeassistant
-cp ./home-assistant-on-openwrt/configuration/* ./.homeassistant/
+mkdir -p /data/.homeassistant
+cp ./home-assistant-on-openwrt/configuration/* /data/.homeassistant/
 #Install finished
-echo -e "\033[32m HomeAssistant installation finished. Use command \"hass\" to start the HA. \033[0m"
+echo -e "\033[32m HomeAssistant installation finished. Use command \"hass -c /data/.homeassistant\" to start it. \033[0m"
 echo -e "\033[32m Note that the firstly start will take 20~30 minutes. If failed, retry it. \033[0m"
