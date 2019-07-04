@@ -10,6 +10,11 @@ http:
   server_host: 192.168.8.1
   server_port: 8123
 
+recorder:
+  purge_interval: 5
+  purge_keep_days: 30
+
+
 # Text to speech
 
 group: !include groups.yaml
