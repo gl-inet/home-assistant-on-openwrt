@@ -9,19 +9,20 @@ Recommend device is GL-S1300. It has a 8G emmc, 512 MB RAM and a Quad-core CPU. 
 Firmware version 3.023 for GL-S1300 or above.
 
 ## Easiest installation
-Do not need to clone this project and excute it manually. We have make an ipk to do this!  
-Just install a package named "gl-homeassistant" in the web UI. Or manually install it in the SSH terminal like this:  
+We recommend strongly that using our gl-homeassistant.ipk to install the HA. It provides an One-click installation script and has add HA into the system boot program.  
+You can install the gl-homeassistant easily through the Web. Just search "gl-homeassistant" in the "plug-ins" and clik "install".  
+Or you can manually install it in the SSH terminal typing this:  
 ```
 opkg update
 opkg install gl-homeassistant
 ```
-Then start the installation using command in the SSH terminal
+After finished installing gl-homeassistant. You can using command in the SSH terminal to start the installation of HomeAssistant
 ```
 hass-install
 ```
-Wait for the installation finished.
+Wait for the installation finished. Usually it takes 20~30 minutes.
 ## Manually install
-While you can also choose to clone this project and excute it manually.
+If you didn't install gl-homeassistant. There is no command named "hass-install". You have to clone this project and excute it manually.
 ### Clone this project
 Open the OpenWRT interface through SSH. Using putty or xshell or some other tools.  
 And then get into the root path and clone this project.
@@ -39,11 +40,11 @@ Get into the project folder and start the installation. Make sure your device ha
 cd home-assistant-on-openwrt
 ./install.sh 
 ```
-It will take 20~30 minutes. After finished, it will print "HomeAssistant installation finished. Use command hass to start the HA."
+It will take 20~30 minutes. After finished, it will print "HomeAssistant installation finished. Use command "hass -c /data/.homeassistant" to start the HA."
 ## Start HomeAssistant firstly
-After installation finished, use command `hass` to start.  
-Note that firstly start will download and install some python modules. Make sure the network is connected while first starting. It will take about 20 minutes. If it stuck or print some error messages, don't worry, interupt it and retry `hass` usually works.  
-It has fully started when print messages
+After installation finished, use command `hass -c /data/.homeassistant` to start.  
+Note that firstly start will download and install some python modules. Make sure the network is connected while first starting. It will take about 20 minutes. If it stuck or print some error messages, don't worry, interupt it and retry `hass -c /data/.homeassistant` usually works.  
+It has fully started when print messages like:
 ```
 Starting Home Assistant
 Timer:starting
