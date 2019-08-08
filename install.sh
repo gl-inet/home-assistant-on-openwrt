@@ -181,9 +181,9 @@ do
     try=$((try+1))
     if [ $try -le 5 ]; then
         echo -e "\033[33m Download python module: cryptography...... try $try. \033[0m"
-        curl https://files.pythonhosted.org/packages/07/ca/bc827c5e55918ad223d59d299fff92f3563476c3b00d0a9157d9c0217449/cryptography-2.6.1.tar.gz > cryptography-2.6.1.tar.gz
+        curl https://files.pythonhosted.org/packages/c2/95/f43d02315f4ec074219c6e3124a87eba1d2d12196c2767fadfdc07a83884/cryptography-2.7.tar.gz > cryptography-2.7.tar.gz
         if [ $? -ne 0 ]; then
-            rm ./cryptography-2.6.1.tar.gz            
+            rm ./cryptography-2.7.tar.gz            
             continue
         else
             break
@@ -194,15 +194,15 @@ do
     fi
 done
 echo -e "\033[32m Install python module: cryptography...... \033[0m"
-tar -xzvf cryptography-2.6.1.tar.gz && \
-cd ./cryptography-2.6.1 && \
+tar -xzvf cryptography-2.7.tar.gz && \
+cd ./cryptography-2.7 && \
 LDFLAGS=-pthread python3 setup.py install && \
 cd ../
 if [ $? -ne 0 ]; then
     echo -e "\033[31m ERROR! Install cryptography failed,  exit. \033[0m"
     exit 0
 fi
-rm -rf ./cryptography-2.6.1*
+rm -rf ./cryptography-2.7*
 
 #Install Home Assistant
 try=0
