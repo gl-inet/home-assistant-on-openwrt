@@ -1,7 +1,8 @@
 # Script to install HomeAssistant on OpenWRT
 HomeAssistant is an open source home automation platform. It is able to track and control thousands of smart devices and offer a platform for automating control. Details on https://github.com/home-assistant/home-assistant.  
 HA supports only Windows, Linux, Mac and Raspberry offically. While this project is to install the HomeAssistant on an OpenWRT OS. So that you can run a HomeAssistant on a router without having to run a 24-hours PC or Raspberry.   
-**Note that OpenWRT is not an officially supported platform and so not all integrations will work in this system** 
+<br />
+**Note that OpenWRT is not an officially supported platform and so not all integrations will work in this system.** 
 
 ## Hardware Requirements
 Completely installation for HomeAssistant will take nearly 350 MB Flash and 130 MB RAM. More components require more storage.  
