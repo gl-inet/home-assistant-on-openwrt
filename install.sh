@@ -163,7 +163,7 @@ do
     try=$((try+1))
     if [ $try -le 5 ]; then
         echo -e "\033[33m Install python module: PyNaCl...... try $try. \033[0m"
-        SODIUM_INSTALL=system pip3 install pynacl
+        SODIUM_INSTALL=system pip3 install pynacl==1.3.0
         if [ $? -ne 0 ]; then
             continue
         else
@@ -174,35 +174,6 @@ do
         exit 0
     fi
 done
-
-try=0
-while true
-do
-    try=$((try+1))
-    if [ $try -le 5 ]; then
-        echo -e "\033[33m Download python module: cryptography...... try $try. \033[0m"
-        curl https://files.pythonhosted.org/packages/c2/95/f43d02315f4ec074219c6e3124a87eba1d2d12196c2767fadfdc07a83884/cryptography-2.7.tar.gz > cryptography-2.7.tar.gz
-        if [ $? -ne 0 ]; then
-            rm ./cryptography-2.7.tar.gz            
-            continue
-        else
-            break
-        fi
-    else
-        echo -e "\033[31m ERROR! Download cryptography failed, exit. \033[0m"
-        exit 0
-    fi
-done
-echo -e "\033[32m Install python module: cryptography...... \033[0m"
-tar -xzvf cryptography-2.7.tar.gz && \
-cd ./cryptography-2.7 && \
-LDFLAGS=-pthread python3 setup.py install && \
-cd ../
-if [ $? -ne 0 ]; then
-    echo -e "\033[31m ERROR! Install cryptography failed,  exit. \033[0m"
-    exit 0
-fi
-rm -rf ./cryptography-2.7*
 
 #Install Home Assistant
 try=0
